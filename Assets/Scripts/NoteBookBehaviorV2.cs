@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class NoteBookBehaviorV2 : MonoBehaviour
@@ -7,10 +8,11 @@ public class NoteBookBehaviorV2 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.tag == "Player")
         {
             hintToast.SetActive(true);
-            GameData.currentNoteBook = this.gameObject;
+            GameData.currentNoteBook = gameObject;
         }
     }
 
@@ -22,15 +24,12 @@ public class NoteBookBehaviorV2 : MonoBehaviour
             GameData.currentNoteBook = null;
         }
     }
-
-    void Update()
+    void FixedUpdate()
     {
-        if (hintToast.activeSelf && Input.GetKeyDown(KeyCode.F) && GameData.currentNoteBook == gameObject)
+        if (Input.GetKeyDown(KeyCode.F) && gameObject.activeSelf && hintToast.activeSelf)
         {
             hintToast.SetActive(false);
             noteBookDialog.SetActive(true);
-        } else {
-
         }
     }
 }

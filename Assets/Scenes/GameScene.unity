@@ -317,7 +317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157ae696bf85145dca293611d268d7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToastInit
-  toastObject: {fileID: 113568410}
   autoHide: 0
 --- !u!212 &113568412
 SpriteRenderer:
@@ -427,7 +426,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157ae696bf85145dca293611d268d7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToastInit
-  toastObject: {fileID: 297804458}
   autoHide: 1
 --- !u!212 &297804460
 SpriteRenderer:
@@ -963,6 +961,17 @@ Transform:
   - {fileID: 65424252}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1027775096 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6115681535756749341, guid: 5ebfcc150a8e344b0b39c838fd08ac66, type: 3}
+  m_PrefabInstance: {fileID: 1313247680218662444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1043200768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,6 +1060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1054940338}
   - component: {fileID: 1054940337}
+  - component: {fileID: 1054940339}
   m_Layer: 0
   m_Name: GameBG 1_0
   m_TagString: Untagged
@@ -1131,6 +1141,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1054940339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054940336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef90acc5e330144da8ce01f27e9bb480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefineLevel
+  level: 1
 --- !u!1 &1447973993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,7 +1657,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157ae696bf85145dca293611d268d7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToastInit
-  toastObject: {fileID: 1883744031}
   autoHide: 1
 --- !u!212 &1883744033
 SpriteRenderer:
@@ -1952,6 +1974,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NoteBookDialog_0
       objectReference: {fileID: 0}
+    - target: {fileID: 4471334996429695105, guid: 5ebfcc150a8e344b0b39c838fd08ac66, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7759576908440620585, guid: 5ebfcc150a8e344b0b39c838fd08ac66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1996,6 +2022,10 @@ PrefabInstance:
       propertyPath: noteBook
       value: 
       objectReference: {fileID: 2127718210}
+    - target: {fileID: 8828925085177189986, guid: 5ebfcc150a8e344b0b39c838fd08ac66, type: 3}
+      propertyPath: questionText
+      value: 
+      objectReference: {fileID: 1027775096}
     - target: {fileID: 8828925085177189986, guid: 5ebfcc150a8e344b0b39c838fd08ac66, type: 3}
       propertyPath: toastCorrect
       value: 

@@ -15,9 +15,11 @@ public class NoteBookBehavior : MonoBehaviour
         if (noteBookToast.activeSelf && Input.GetKeyDown(KeyCode.F))
         {
             noteBookDialog.SetActive(true);
+            GameData.currentNoteBook = gameObject;
         }
         else if (Input.GetKeyDown(KeyCode.Escape)){
             noteBookDialog.SetActive(false);
+            GameData.currentNoteBook = null;
         }
     }
 }

@@ -9,14 +9,27 @@ using UnityEngine.Networking;
 public class NoteBookQuestionGenerator : MonoBehaviour
 {
     public TMP_Text questionText;
+
+    void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameObject.SetActive(false);
+        }
+    }
     void OnEnable()
     {
-        if (string.IsNullOrEmpty(GameData.Answer))
-            StartCoroutine(PostRequest());
+        if (string.IsNullOrEmpty(GameData.answer))
+            StartCoroutine(GetQuestion());
     }
 
     string endPoint = "https://ccce-game-backend.eliaschen.dev/generate/question";
-    IEnumerator PostRequest()
+    IEnumerator GetQuestion()
     {
         using (UnityWebRequest request = UnityWebRequest.Get(endPoint))
         {
@@ -34,7 +47,7 @@ public class NoteBookQuestionGenerator : MonoBehaviour
                 string answer = (string)questionObj["answer"];
                 Debug.Log("Response: " + question + ", " + answer);
                 questionText.text = question;
-                GameData.Answer = answer;
+                GameData.answer = answer;
             }
         }
     }

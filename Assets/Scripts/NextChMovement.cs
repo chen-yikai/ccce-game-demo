@@ -16,7 +16,7 @@ public class NextChMovement : MonoBehaviour
         }
         else
         {
-            GameData.Answer = "";
+            GameData.answer = "";
             SceneManager.LoadScene("HomeScene");
         }
     }

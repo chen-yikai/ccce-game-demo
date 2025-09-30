@@ -9,13 +9,20 @@ public class DoorBehavior : MonoBehaviour
     bool playerContact = false;
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Player entered area" + collision.tag);
         if (collision.tag == "Player") playerContact = true;
     }
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player") playerContact = false;
+
+        if (allowToLeave != null)
+        {
+            allowToLeave.SetActive(false);
+            disallowToLeave.SetActive(false);
+        }
     }
-    void Update()
+    void FixedUpdate()
     {
         if (playerContact)
         {
@@ -23,29 +30,38 @@ public class DoorBehavior : MonoBehaviour
             {
                 if (GameData.LevelRequiredTools.Count == GameData.levelRequiredToolsCount[GameData.currentLevel - 1])
                 {
-                    allowToLeave.SetActive(true);
-                    disallowToLeave.SetActive(false);
+                    if (allowToLeave != null)
+                    {
+                        allowToLeave.SetActive(true);
+                        disallowToLeave.SetActive(false);
+                    }
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        SceneManager.LoadScene("NextChScene");
+                    }
                 }
                 else
                 {
-                    allowToLeave.SetActive(false);
-                    disallowToLeave.SetActive(true);
+                    if (allowToLeave != null)
+                    {
+                        allowToLeave.SetActive(false);
+                        disallowToLeave.SetActive(true);
+                    }
                 }
             }
             else
             {
-                allowToLeave.SetActive(true);
-                disallowToLeave.SetActive(false);
-            }
-        }
-        else
-        {
-            allowToLeave.SetActive(false);
-            disallowToLeave.SetActive(false);
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                SceneManager.LoadScene("GameScene"); // TODO: load last scene
+                if (allowToLeave != null)
+                {
+                    allowToLeave.SetActive(true);
+                    disallowToLeave.SetActive(false);
+                }
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    SceneManager.LoadScene("GameScene"); // TODO: load last scene
+                }
             }
         }
     }
+
 }

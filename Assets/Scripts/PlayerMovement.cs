@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -103,7 +104,14 @@ public class PlayerMovement : MonoBehaviour
         }
         if (touchDoor)
         {
+            if (Input.GetKeyDown(KeyCode.F) && GameData.LevelRequiredTools.Count == GameData.levelRequiredToolsCount[GameData.currentLevel - 1])
+            {
+                SceneManager.LoadScene("Level2Scene"); // TODO: load next scene
+            }
+            else
+            {
 
+            }
         }
         // Player Movement
         if (noteBookDialogObject.activeSelf) return;

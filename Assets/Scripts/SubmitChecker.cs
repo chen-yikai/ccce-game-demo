@@ -7,15 +7,17 @@ public class SubmitChecker : MonoBehaviour
     public TMP_InputField answerInputField;
     public GameObject toastCorrect;
     public GameObject toastIncorrect;
-    public GameObject noteBook = GameData.currentNoteBook;
+    public GameObject noteBook;
     public GameObject dialog;
+    public TMP_Text questionText;
+    public bool isV2 = false;
     void Start()
     {
         answerInputField.ActivateInputField();
     }
     public void SubmitAnswer()
     {
-        string answer = GameData.Answer;
+        string answer = GameData.answer;
         if (answerInputField.text.Trim() == answer)
         {
             toastIncorrect.SetActive(false);
@@ -25,8 +27,20 @@ public class SubmitChecker : MonoBehaviour
             // StartCoroutine(NextChapter());
             GameData.Tools.Add(ToolType.NoteBook);
             GameData.LevelRequiredTools.Add(ToolType.NoteBook);
-            noteBook.SetActive(false);
+
+            if (isV2 && noteBook == null)
+            {
+                GameData.currentNoteBook.SetActive(false);
+            }
+            else
+            {
+                noteBook.SetActive(false);
+            }
             dialog.SetActive(false);
+
+            GameData.answer = "";
+            answerInputField.text = "";
+            questionText.text = "載入中...";
         }
         else
         {
